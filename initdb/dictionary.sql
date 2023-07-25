@@ -503,19 +503,19 @@ VALUES
         'foreign_key_columns',
         'foreign_keys',
         'pk',
-        'fkc_foreign_key'
+        'fk_foreign_key'
     ),
     (
         'foreign_key_columns',
         'columns',
         'pk',
-        'fkc_referencing_column'
+        'fk_referencing_column'
     ),
     (
         'foreign_key_columns',
         'unique_key_columns',
         'pk',
-        'fkc_referenced_column'
+        'fk_referenced_column'
     ),
     (
         'seed_rows',
@@ -584,7 +584,7 @@ VALUES
         'foreign_key_columns',
         'foreign_keys',
         'pk',
-        'fkc_foreign_key',
+        'fk_foreign_key',
         'referencing_table_name',
         'referencing_table_name'
     ),
@@ -592,7 +592,7 @@ VALUES
         'foreign_key_columns',
         'foreign_keys',
         'pk',
-        'fkc_foreign_key',
+        'fk_foreign_key',
         'referenced_table_name',
         'referenced_table_name'
     ),
@@ -600,7 +600,7 @@ VALUES
         'foreign_key_columns',
         'foreign_keys',
         'pk',
-        'fkc_foreign_key',
+        'fk_foreign_key',
         'foreign_key_name',
         'foreign_key_name'
     ),
@@ -608,7 +608,7 @@ VALUES
         'foreign_key_columns',
         'columns',
         'pk',
-        'fkc_referencing_column',
+        'fk_referencing_column',
         'referencing_table_name',
         'table_name'
     ),
@@ -616,7 +616,7 @@ VALUES
         'foreign_key_columns',
         'columns',
         'pk',
-        'fkc_referencing_column',
+        'fk_referencing_column',
         'referencing_column_name',
         'column_name'
     ),
@@ -624,7 +624,7 @@ VALUES
         'foreign_key_columns',
         'unique_key_columns',
         'pk',
-        'fkc_referenced_column',
+        'fk_referenced_column',
         'referenced_table_name',
         'table_name'
     ),
@@ -632,7 +632,7 @@ VALUES
         'foreign_key_columns',
         'unique_key_columns',
         'pk',
-        'fkc_referenced_column',
+        'fk_referenced_column',
         'referenced_column_name',
         'column_name'
     ),
