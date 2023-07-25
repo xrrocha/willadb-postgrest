@@ -150,7 +150,9 @@ VALUES
     ('unique_keys', 4),
     ('unique_key_columns', 5),
     ('foreign_keys', 6),
-    ('foreign_key_columns', 7);
+    ('foreign_key_columns', 7),
+    ('seed_rows', 8),
+    ('seed_row_columns', 9);
 
 -- columns
 INSERT INTO
@@ -340,6 +342,54 @@ VALUES
         'varchar',
         FALSE,
         NULL
+    ),
+    (
+        'seed_rows',
+        'table_name',
+        1,
+        'varchar',
+        FALSE,
+        NULL
+    ),
+    (
+        'seed_rows',
+        'position',
+        2,
+        'numeric',
+        FALSE,
+        NULL
+    ),
+    (
+        'seed_row_columns',
+        'table_name',
+        1,
+        'varchar',
+        FALSE,
+        NULL
+    ),
+    (
+        'seed_row_columns',
+        'position',
+        2,
+        'numeric',
+        FALSE,
+        NULL
+    ),
+    (
+        'seed_row_columns',
+        'column_name',
+        3,
+        'varchar',
+        FALSE,
+        NULL
+    ),
+    (
+        'seed_row_columns',
+        'column_value',
+        4,
+        'varchar',
+        FALSE,
+        NULL
     );
 
 -- Unique Keys
@@ -352,56 +402,26 @@ VALUES
     ('unique_keys', 'pk'),
     ('unique_key_columns', 'pk'),
     ('foreign_keys', 'pk'),
-    ('foreign_key_columns', 'pk');
+    ('foreign_key_columns', 'pk'),
+    ('seed_rows', 'pk'),
+    ('seed_row_columns', 'pk');
 
 UPDATE
     tables
 SET
     primary_key_name = 'pk'
 WHERE
-    table_name = 'data_types';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'tables';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'columns';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'unique_keys';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'unique_key_columns';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'foreign_keys';
-
-UPDATE
-    tables
-SET
-    primary_key_name = 'pk'
-WHERE
-    table_name = 'foreign_key_columns';
+    table_name in(
+        'data_types',
+        'tables',
+        'columns',
+        'unique_keys',
+        'unique_key_columns',
+        'foreign_keys',
+        'foreign_key_columns',
+        'seed_rows',
+        'seed_row_columns'
+    );
 
 -- Unique Key columns
 INSERT INTO
@@ -445,7 +465,12 @@ VALUES
         'foreign_key_columns',
         'pk',
         'referenced_column_name'
-    );
+    ),
+    ('seed_rows', 'pk', 'table_name'),
+    ('seed_rows', 'pk', 'position'),
+    ('seed_row_columns', 'pk', 'table_name'),
+    ('seed_row_columns', 'pk', 'position'),
+    ('seed_row_columns', 'pk', 'column_name');
 
 INSERT INTO
     foreign_keys(
@@ -491,6 +516,18 @@ VALUES
         'unique_key_columns',
         'pk',
         'fkc_referenced_column'
+    ),
+    (
+        'seed_rows',
+        'tables',
+        'pk',
+        'fk_table'
+    ),
+    (
+        'seed_row_columns',
+        'seed_rows',
+        'pk',
+        'fk_row'
     );
 
 INSERT INTO
@@ -598,6 +635,30 @@ VALUES
         'fkc_referenced_column',
         'referenced_column_name',
         'column_name'
+    ),
+    (
+        'seed_rows',
+        'tables',
+        'pk',
+        'fk_table',
+        'table_name',
+        'table_name'
+    ),
+    (
+        'seed_row_columns',
+        'seed_rows',
+        'pk',
+        'fk_row',
+        'table_name',
+        'table_name'
+    ),
+    (
+        'seed_row_columns',
+        'seed_rows',
+        'pk',
+        'fk_row',
+        'position',
+        'position'
     );
 
 INSERT INTO
