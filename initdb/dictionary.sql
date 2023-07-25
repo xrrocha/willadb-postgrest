@@ -482,6 +482,12 @@ INSERT INTO
 VALUES
     ('columns', 'tables', 'pk', 'column_table'),
     (
+        'columns',
+        'data_types',
+        'pk',
+        'column_data_type'
+    ),
+    (
         'unique_key_columns',
         'columns',
         'pk',
@@ -547,6 +553,14 @@ VALUES
         'column_table',
         'table_name',
         'table_name'
+    ),
+    (
+        'columns',
+        'data_types',
+        'pk',
+        'column_data_type',
+        'data_type',
+        'data_type'
     ),
     (
         'unique_key_columns',
