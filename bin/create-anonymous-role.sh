@@ -1,4 +1,6 @@
 #!/bin/bash
+DIR="$(cd $(dirname "$0") ; echo $PWD)"
+. "$DIR/env"
 
 psql -U ${POSTGRES_USER} <<-END
     CREATE USER ${DB_ANON_ROLE};

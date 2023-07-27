@@ -1,5 +1,12 @@
-DROP TABLE IF EXISTS tables CASCADE;
-DROP TABLE IF EXISTS data_types CASCADE;
+DROP TABLE IF EXISTS seed_row_columns;
+DROP TABLE IF EXISTS seed_rows;
+DROP TABLE IF EXISTS foreign_key_columns;
+DROP TABLE IF EXISTS foreign_keys;
+DROP TABLE IF EXISTS unique_key_columns;
+DROP TABLE IF EXISTS unique_keys;
+DROP TABLE IF EXISTS columns;
+DROP TABLE IF EXISTS tables;
+DROP TABLE IF EXISTS data_types;
 
 CREATE TABLE data_types
 (

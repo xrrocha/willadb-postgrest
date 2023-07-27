@@ -1,0 +1,16 @@
+#!/bin/sh
+DIR="$(cd $(dirname "$0") ; echo $PWD)"
+. "$DIR/env"
+
+#OPENAPI_SERVER_PROXY_URI="http://localhost:3000"
+
+CONF="$DIR/willadb.conf"
+if [ ! -f "$CONF" ]; then
+    cat > "$CONF" <<!
+db-uri = "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}"
+db-schemas = "$DB_SCHEMA"
+db-anon-role = "$DB_ANON_ROLE"
+!
+fi
+
+postgrest "$CONF"
